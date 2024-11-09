@@ -3,7 +3,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 class User(AbstractUser):
-    nickname = models.CharField(max_length=10, unique=True)
+    nickname = models.CharField(max_length=10, unique=True, null=False, blank=False)
     
     USER = 'USER'
     ADMIN = 'ADMIN'
@@ -25,5 +25,6 @@ class User(AbstractUser):
     username = models.CharField(
         max_length=30,
         unique=True,
-        validators=[username_validator]
+        validators=[username_validator],
+        error_messages={"unique": "이 사용자 이름은 이미 사용 중입니다."}
     )

@@ -18,14 +18,13 @@ class SignupView(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-# Create your views here.
 
 class LoginView(APIView):
     permission_classes = [permissions.AllowAny]
 
     def post(self, request):
-        username= request.data.get("username")
-        password= request.data.get("password")
+        username = request.data.get("username")
+        password = request.data.get("password")
 
         if not User.objects.filter(username=username).exists():
             return Response({"message": "아이디가 틀렸습니다."}, status=400)
