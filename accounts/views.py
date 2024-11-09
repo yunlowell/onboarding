@@ -1,14 +1,17 @@
 from django.shortcuts import render
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, get_user_model
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .models import User
+from rest_framework import permissions
 from .serializers import UserSerializer
 from rest_framework_simplejwt.tokens import RefreshToken
 
+User = get_user_model()
 
 class SignupView(APIView):
+    permission_classes = [permissions.AllowAny]
+
     def post(self, request):
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
@@ -18,6 +21,8 @@ class SignupView(APIView):
 # Create your views here.
 
 class LoginView(APIView):
+    permission_classes = [permissions.AllowAny]
+
     def post(self, request):
         username= request.data.get("username")
         password= request.data.get("password")
