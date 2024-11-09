@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth import authenticate
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -27,7 +28,7 @@ class LoginView(APIView):
         user = authenticate(username=username, password=password)
         if not user:
             return Response({"message": "비밀번호가 틀렸습니다."}, status=400)
-            
+
         # 유저 인증 및 토큰 발행 로직 구현
         refresh = RefreshToken.for_user(user)
         return Response({
