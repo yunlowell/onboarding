@@ -13,7 +13,7 @@ schema_view = get_schema_view(
         terms_of_service="https://www.google.com/policies/terms/",
         contact=openapi.Contact(email="dbsdbf95@gmail.com"),
     ),
-    
+
     public=True,
     permission_classes=(permissions.AllowAny,),
 )
