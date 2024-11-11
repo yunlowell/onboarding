@@ -1,3 +1,6 @@
+# django, middleware, JWT 의 개념 정리 TIL
+https://velog.io/@dbsdbf95/Django%EC%99%80-Middleware-%EB%B0%8F-JWT-%EA%B0%9C%EB%85%90-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0
+
 # Onboarding Project
 Onboarding은 사용자 인증 시스템을 관리하고, JWT(JSON Web Token)를 사용하여 로그인 및 인증을 처리하는 Django 프로젝트입니다. 이 프로젝트는 API 문서화 도구인 Swagger UI를 사용하여, API를 테스트하고 문서화하는 기능을 제공합니다.
 
